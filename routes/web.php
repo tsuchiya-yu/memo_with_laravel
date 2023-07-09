@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// テストや動作確認のためのルーティング
+// e.g)http://localhost/test/aaa
+Route::get('/test/{message?}', [TestController::class, 'show']);
 
 Route::get('/', function () {
     return view('welcome');
