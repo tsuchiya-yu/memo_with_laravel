@@ -24,7 +24,7 @@ const submit = () => {
 
 <template>
     <GuestLayout>
-        <Head title="Register" />
+        <Head title="会員登録|MemoShare" />
         <serviceAuthHeader/>
 
         <form @submit.prevent="submit">

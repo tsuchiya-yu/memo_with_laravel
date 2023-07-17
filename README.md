@@ -16,11 +16,11 @@ GRANT ALL PRIVILEGES ON *.* TO '【DB_USERNAME】'@'%';
 FLUSH PRIVILEGES;
 
 
+## デザイン
 
+### デザイン
 プレレビュー：
 https://app.uizard.io/p/e026c07e/overview
 
-トップ画像：
+### トップ画像の生成プロンプト(uizard)：
 A black man operating a laptop computer and a black woman looking at a smartphone in her hand. Background color is white.
-
-会員登録画面画像：
