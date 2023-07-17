@@ -4,6 +4,7 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
+import ServiceAuthHeader from '@/Components/ServiceAuthHeader.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
 const form = useForm({
@@ -24,13 +25,7 @@ const submit = () => {
 <template>
     <GuestLayout>
         <Head title="Register" />
-
-        <div class='text-center w-full rounded-b-2xl h-200 bg-secondry-red h-72 p-6 mb-4' style='margin-top: -1rem;'>
-            <img :src="'/img/register.png'" alt="start MemoShare" class="w-32 h-32 inline-block mt-2">
-            <h1 class='font-bold text-xl m-2'>MemoShare</h1>
-            <p class='text-sm'>パソコンで書いたメモをスマホで確認</p>
-            <p class='text-sm'>自分で書いたメモを他の人と共有</p>
-        </div>
+        <serviceAuthHeader/>
 
         <form @submit.prevent="submit">
             <div>
