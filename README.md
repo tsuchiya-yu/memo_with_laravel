@@ -14,3 +14,13 @@ mysql -u root
 create user '【DB_USERNAME】'@'%';
 GRANT ALL PRIVILEGES ON *.* TO '【DB_USERNAME】'@'%';
 FLUSH PRIVILEGES;
+
+
+
+プレレビュー：
+https://app.uizard.io/p/e026c07e/overview
+
+トップ画像：
+A black man operating a laptop computer and a black woman looking at a smartphone in her hand. Background color is white.
+
+会員登録画面画像：

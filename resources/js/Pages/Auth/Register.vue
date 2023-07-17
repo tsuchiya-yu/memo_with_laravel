@@ -25,14 +25,21 @@ const submit = () => {
     <GuestLayout>
         <Head title="Register" />
 
+        <div class='text-center w-full rounded-b-2xl h-200 bg-secondry-red h-72 p-6 mb-4' style='margin-top: -1rem;'>
+            <img :src="'/img/register.png'" alt="start MemoShare" class="w-32 h-32 inline-block mt-2">
+            <h1 class='font-bold text-xl m-2'>MemoShare</h1>
+            <p class='text-sm'>パソコンで書いたメモをスマホで確認</p>
+            <p class='text-sm'>自分で書いたメモを他の人と共有</p>
+        </div>
+
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="name" value="Name" />
+                <InputLabel for="name" value="ニックネーム" />
 
                 <TextInput
                     id="name"
                     type="text"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full bg-gray-100"
                     v-model="form.name"
                     required
                     autofocus
@@ -43,12 +50,12 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="email" value="Email" />
+                <InputLabel for="email" value="メールアドレス" />
 
                 <TextInput
                     id="email"
                     type="email"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full bg-gray-100"
                     v-model="form.email"
                     required
                     autocomplete="username"
@@ -58,12 +65,12 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password" value="Password" />
+                <InputLabel for="password" value="パスワード" />
 
                 <TextInput
                     id="password"
                     type="password"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full  bg-gray-100"
                     v-model="form.password"
                     required
                     autocomplete="new-password"
@@ -73,12 +80,12 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
+                <InputLabel for="password_confirmation" value="パスワード(確認)" />
 
                 <TextInput
                     id="password_confirmation"
                     type="password"
-                    class="mt-1 block w-full"
+                    class="mt-1 block w-full  bg-gray-100"
                     v-model="form.password_confirmation"
                     required
                     autocomplete="new-password"
@@ -87,17 +94,17 @@ const submit = () => {
                 <InputError class="mt-2" :message="form.errors.password_confirmation" />
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="mt-4">
+                <PrimaryButton class="inline my-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    登録する
+                </PrimaryButton>
                 <Link
                     :href="route('login')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    class="block text-right underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                    Already registered?
+                    ログインはこちら
                 </Link>
 
-                <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Register
-                </PrimaryButton>
             </div>
         </form>
     </GuestLayout>
