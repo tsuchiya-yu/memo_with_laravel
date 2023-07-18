@@ -20,21 +20,22 @@ const submit = () => {
 </script>
 
 <template>
-    <GuestLayout>
+    <GuestLayout style='justify-content: initial;'>
         <Head title="Forgot Password" />
 
         <div class="mb-4 text-sm text-gray-600">
-            Forgot your password? No problem. Just let us know your email address and we will email you a password reset
-            link that will allow you to choose a new one.
+            <div>パスワードをお忘れですか？</div>
+            新しいパスワードを設定するための手順をメールでお送りします。
+            ご登録のメールアドレスを入力してください。
         </div>
 
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
+        <div v-if="status" class="mb-4 font-medium text-sm block">
             {{ status }}
         </div>
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="email" value="Email" />
+                <InputLabel for="email" value="メールアドレス" />
 
                 <TextInput
                     id="email"
@@ -51,7 +52,7 @@ const submit = () => {
 
             <div class="flex items-center justify-end mt-4">
                 <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Email Password Reset Link
+                    パスワード再設定メールを送る
                 </PrimaryButton>
             </div>
         </form>

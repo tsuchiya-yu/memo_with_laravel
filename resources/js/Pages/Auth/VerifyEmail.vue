@@ -23,8 +23,8 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
 
         <div class='text-center w-full h-70 p-6 mb-4'>
             <h1 class='font-bold text-xl m-2'>MemoShare</h1>
-            <p class='text-sm'>ご登録のメールアドレスにメールをお送りしました。</p>
-            <p class='text-sm'>手順に沿って認証を行ってください。</p>
+            <p class='text-sm'>メールアドレスの認証が済んでいません。</p>
+            <p class='text-sm'>認証を行ってください。</p>
             <img :src="'/img/mail_not_confirm.png'" alt="start MemoShare" class="w-32 h-32 inline-block mt-6">
         </div>
 
