@@ -18,7 +18,7 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
 </script>
 
 <template>
-    <GuestLayout>
+    <GuestLayout style='justify-content: initial;'>
         <Head title="メールアドレス未認証|MemoShare" />
 
         <div class='text-center w-full h-70 p-6 mb-4'>
