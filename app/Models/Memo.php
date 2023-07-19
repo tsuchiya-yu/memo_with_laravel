@@ -11,10 +11,14 @@ class Memo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'content'];
+    protected $fillable = ['title', 'content', 'is_public'];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+
+    protected $casts = [
+        'is_public' => 'boolean',
+    ];
 }

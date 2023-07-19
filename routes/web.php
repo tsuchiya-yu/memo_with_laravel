@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\MemoController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -36,6 +38,12 @@ Route::get('/dashboard', function () {
         'memos' => $memos
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+# メモ操作のルーティング
+Route::middleware(['auth', 'verified'])->group(function () {
+    $user = Auth::user();
+    Route::resource('memos', MemoController::class);
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -1,18 +1,23 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head,Link,usePage } from '@inertiajs/vue3';
 </script>
 
 <template>
     <AuthenticatedLayout>
-        <Head title="Dashboard" />
-        <div class="p-12 flex gap-5 flex-wrap justify-center">
+        <Head title="マイページ|MemoShare" />
+        <div v-if="$page.props.flash.message" class="bg-thin-gray px-28 py-4">
+            {{ $page.props.flash.message }}
+        </div>
+        <div class="memo-box-wrap p-12 flex gap-5 flex-wrap justify-center">
             <div v-for="memo in memos" :key="memo.id">
-                <div class='memo-box bg-secondry-red w-72 h-48 max-w-xs rounded-2xl p-4 m-2 relative'>
-                    <h2 class='text-lg font-bold'>{{ memo.title }}</h2>
-                    <p class='whitespace-pre'>{{ memo.content ? memo.content.substring(0, 30) : '' }}</p>
-                    <p class='text-right text-sm text-gray-100 bottom-4 right-4 absolute'>{{ dayjs(memo.updated_at).format('YYYY/MM/DD') }} 更新</p>
-                </div>
+                <Link :href="route('memos.edit', memo.id)">
+                    <div class='memo-box bg-secondry-red w-72 h-48 max-w-xs rounded-2xl p-4 m-2 relative'>
+                        <h2 class='text-lg font-bold'>{{ memo.title }}</h2>
+                        <p>{{ memo.content ? (memo.content.length > 30 ? memo.content.substring(0, 30) + '...' : memo.content) : '' }}</p>
+                        <p class='text-right text-sm text-gray-100 bottom-4 right-4 absolute'>{{ dayjs(memo.updated_at).format('YYYY/MM/DD') }} 更新</p>
+                    </div>
+                </Link>
             </div>
         </div>
     </AuthenticatedLayout>
@@ -30,10 +35,31 @@ export default {
 
 <style>
 
+.memo-box {
+    min-height: 210px;
+}
+
 .memo-box:hover {
     cursor: pointer;
     background: #CB191B;
     color: white;
     border-radius: 20px;
+}
+
+@media (max-width: 1047px) { 
+   .memo-box {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 547px) { 
+   .memo-box-wrap {
+        padding:1rem 0;
+        gap: 0;
+    }
+
+    .memo-box {
+        max-width: 170px;
+    }
 }
 </style>
