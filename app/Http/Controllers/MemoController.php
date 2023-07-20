@@ -10,6 +10,28 @@ use App\Models\Memo;
 
 class MemoController extends Controller
 {
+
+    public function create(Request $request)
+    {
+        return Inertia::render('Memo/Form',
+        [
+            'memo' => (new Memo),
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'content' => '',
+            'is_public' => '',
+        ]);
+        
+        Auth::user()->memos()->create($validatedData);
+        
+        return redirect()->route('dashboard')->with('message', 'メモを作成しました');
+    }
+
     public function edit(Memo $memo)
     {
 
@@ -17,7 +39,7 @@ class MemoController extends Controller
             abort(403, 'ページが存在しません');
         }
 
-        return Inertia::render('Memo/Edit',
+        return Inertia::render('Memo/Form',
             [
                 'memo' => $memo,
             ]

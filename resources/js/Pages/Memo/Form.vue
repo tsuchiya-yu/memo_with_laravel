@@ -17,7 +17,11 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.put(route('memos.update', props.memo.id));
+    const method = props.memo.id ? form.put : form.post;
+    const routeName = props.memo.id ? 'memos.update' : 'memos.store';
+    method.call(form, route(routeName, props.memo.id), {
+        onFinish: () => form.reset()
+    });
 };
 
 </script>
@@ -56,9 +60,9 @@ const submit = () => {
                     </label>
                 </div>
 
-                <div class='text-right'>最終更新：{{ dayjs(memo.updated_at).format('YYYY/MM/DD') }}</div>
+                <div class='text-right'>最終更新：{{ dayjs(props.memo.updated_at).format('YYYY/MM/DD') }}</div>
                 <PrimaryButton class="inline my-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    更新する
+                    {{ props.memo.id ? '更新' : '登録' }}する
                 </PrimaryButton>
             </form>
         </div>
