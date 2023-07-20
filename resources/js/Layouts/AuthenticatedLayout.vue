@@ -115,8 +115,11 @@ const showingNavigationDropdown = ref(false);
                     class="sm:hidden"
                 >
                     <div class="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
+                        <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard') && $page.props.is_public == false">
+                            自分用のメモ
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('dashboard', { is_public: 'true' })" :active="route().current('dashboard') && $page.props.is_public == true">
+                            公開中のメモ
                         </ResponsiveNavLink>
                     </div>
 

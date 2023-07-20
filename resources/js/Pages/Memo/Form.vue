@@ -4,6 +4,8 @@ import TextInput from '@/Components/TextInput.vue';
 import TextAreaInput from '@/Components/TextAreaInput.vue';
 import Checkbox from '@/Components/Checkbox.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
+import InputError from '@/Components/InputError.vue';
+import InputLabel from '@/Components/InputLabel.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 
 const props = defineProps({
@@ -34,6 +36,7 @@ const submit = () => {
                 <Transition enter-from-class="opacity-0" leave-to-class="opacity-0" class="transition ease-in-out">
                     <p v-if="form.recentlySuccessful" class="text-sm text-gray-600">更新しました</p>
                 </Transition>
+                <InputLabel for="title" value="件名" />
                 <TextInput
                     id="title"
                     type="text"
@@ -44,6 +47,7 @@ const submit = () => {
                 />
                 <InputError class="mt-2" :message="form.errors.title" />
 
+                <InputLabel for="content" value="内容" class='mt-6' />
                 <TextAreaInput
                     id="content"
                     style="min-height: 200px;"
@@ -53,15 +57,15 @@ const submit = () => {
                 />
                 <InputError class="mt-2" :message="form.errors.content" />
 
-                <div class="block mt-4">
+                <div class="block mt-6">
                     <label class="flex items-center">
                         <Checkbox name="is_public" v-model:checked="form.is_public" />
                         <span class="ml-2 text-sm text-gray-600">全体に公開する</span>
                     </label>
                 </div>
 
-                <div class='text-right'>最終更新：{{ dayjs(props.memo.updated_at).format('YYYY/MM/DD') }}</div>
-                <PrimaryButton class="inline my-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <div class='text-right mt-2' v-if="props.memo.id" >最終更新：{{ dayjs(props.memo.updated_at).format('YYYY/MM/DD') }}</div>
+                <PrimaryButton class="inline my-4 mt-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     {{ props.memo.id ? '更新' : '登録' }}する
                 </PrimaryButton>
             </form>

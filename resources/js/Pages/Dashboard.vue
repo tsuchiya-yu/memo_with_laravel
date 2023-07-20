@@ -21,7 +21,7 @@ import { Head,Link,usePage } from '@inertiajs/vue3';
             </div>
             <Link :href="route('memos.create')">
                 <div class='memo-box bg-secondry-red w-72 h-48 max-w-xs rounded-2xl p-4 m-2 relative' style='  display: flex;justify-content: center;align-items: center;'>
-                    <img :src="'/img/plus-icon.png'" alt="register MemoShare" style='max-width: 100px; max-height: 100px;'>
+                    <img :src="'/img/plus-icon.png'" alt="register MemoShare" class='add-memo' style='max-width: 100px; max-height: 100px;'>
                 </div>
             </Link>
         </div>
@@ -66,5 +66,9 @@ export default {
     .memo-box {
         max-width: 170px;
     }
+}
+
+.add-memo:hover {
+    filter: invert(88%) sepia(61%) saturate(0%) hue-rotate(229deg) brightness(107%) contrast(101%);
 }
 </style>
