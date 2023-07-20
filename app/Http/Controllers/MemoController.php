@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Inertia\Inertia;
 
+use App\Http\Requests\MemoRequest;
 use App\Models\Memo;
 
 class MemoController extends Controller
@@ -19,23 +21,16 @@ class MemoController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(MemoRequest $request)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|max:255',
-            'content' => '',
-            'is_public' => '',
-        ]);
-        
-        Auth::user()->memos()->create($validatedData);
-        
+        Auth::user()->memos()->create($request->validated());
         return redirect()->route('dashboard')->with('message', 'メモを作成しました');
     }
 
     public function edit(Memo $memo)
     {
 
-        if (Auth::user()->id !== $memo->user_id) {
+        if (! Gate::allows('update', $memo)) {
             abort(403, 'ページが存在しません');
         }
 
@@ -46,19 +41,13 @@ class MemoController extends Controller
         );
     }
 
-    public function update(Request $request, Memo $memo)
+    public function update(MemoRequest $request, Memo $memo)
     {
-        if (Auth::user()->id !== $memo->user_id) {
+        if (! Gate::allows('update', $memo)) {
             abort(403, 'ページが存在しません');
         }
 
-        $validatedData = $request->validate([
-            'title' => 'required|max:255',
-            'content' => '',
-            'is_public' => '',
-        ]);
-
-        $memo->fill($validatedData);
+        $memo->fill($request->validated());
         $memo->save();
 
         return redirect()->route('dashboard')->with('message', 'メモを更新しました');

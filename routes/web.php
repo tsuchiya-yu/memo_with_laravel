@@ -41,8 +41,8 @@ Route::get('/dashboard', function () {
 
 # メモ操作のルーティング
 Route::middleware(['auth', 'verified'])->group(function () {
-    $user = Auth::user();
-    Route::resource('memos', MemoController::class);
+    Route::resource('memos', MemoController::class)->except(['edit', 'update']);
+    Route::resource('memos', MemoController::class)->only(['edit', 'update'])->middleware('check.memo.owner');
 });
 
 Route::middleware('auth')->group(function () {
