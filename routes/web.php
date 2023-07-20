@@ -33,10 +33,18 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     $user = Auth::user();
-    $memos = $user->memos()->get();
+
+    if (request()->query('is_public') == 'true') {
+        $memos = $user->memos()->public()->get();
+        $is_public = true;
+    } else {
+        $memos = $user->memos()->notPublic()->get();
+        $is_public = false;
+    }
 
     return Inertia::render('Dashboard', [
         'memos' => $memos,
+        'is_public' => $is_public,
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 

@@ -19,4 +19,14 @@ class Memo extends Model
     protected $casts = [
         'is_public' => 'boolean',
     ];
+
+    public function scopePublic($query)
+    {
+        return $query->where('is_public', true);
+    }
+
+    public function scopeNotPublic($query)
+    {
+        return $query->where('is_public', false);
+    }
 }
