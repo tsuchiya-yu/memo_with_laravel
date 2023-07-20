@@ -53,3 +53,8 @@ $memo = $user->memos()->create([
 ```php
 vendor/bin/phpstan analyse app
 ```
+
+### リンター
+```php
+./vendor/bin/pint -v
+```

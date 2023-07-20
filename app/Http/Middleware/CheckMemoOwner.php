@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Gate;
 
 class CheckMemoOwner
@@ -12,7 +11,6 @@ class CheckMemoOwner
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
@@ -20,6 +18,7 @@ class CheckMemoOwner
     {
         $memo = $request->route('memo');
         abort_unless(Gate::allows('update', $memo), 403, 'ページが存在しません');
+
         return $next($request);
     }
 }

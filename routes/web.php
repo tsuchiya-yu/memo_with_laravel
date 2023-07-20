@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\MemoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TestController;
-use App\Http\Controllers\MemoController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -34,12 +34,13 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     $user = Auth::user();
     $memos = $user->memos()->get();
+
     return Inertia::render('Dashboard', [
-        'memos' => $memos
+        'memos' => $memos,
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-# メモ操作のルーティング
+// メモ操作のルーティング
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('memos', MemoController::class)->except(['edit', 'update']);
     Route::resource('memos', MemoController::class)->only(['edit', 'update'])->middleware('check.memo.owner');
