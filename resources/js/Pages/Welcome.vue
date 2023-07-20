@@ -13,6 +13,9 @@ defineProps({
 
 <template>
     <GuestLayout style='justify-content: initial;'>
+        <div v-if="$page.props.flash.message" class="bg-thin-gray px-6 py-4">
+            {{ $page.props.flash.message }}
+        </div>
         <Head title="トップページ|MemoShare" />
         <div style='display: flex;justify-content: center;align-items: center;'>
             <div>

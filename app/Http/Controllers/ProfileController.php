@@ -18,8 +18,13 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): Response
     {
+        $must_verify_email = false;
+        if ($request->user()->email_verified_at == null){
+            $must_verify_email = true;
+        }
+
         return Inertia::render('Profile/Edit', [
-            'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
+            'mustVerifyEmail' => $must_verify_email,
             'status' => session('status'),
         ]);
     }
@@ -31,13 +36,17 @@ class ProfileController extends Controller
     {
         $request->user()->fill($request->validated());
 
+        $must_verify_email = false;
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
+            $must_verify_email = true;
         }
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit');
+        return Redirect::route('profile.edit', [
+            'mustVerifyEmail' => $must_verify_email,
+        ]);
     }
 
     /**
@@ -58,6 +67,6 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+        return Redirect::to('/')->with('message', '退会しました。ご利用ありがとうございました。');
     }
 }
