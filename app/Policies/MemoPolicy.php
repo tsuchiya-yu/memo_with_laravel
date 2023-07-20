@@ -18,7 +18,7 @@ class MemoPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -30,7 +30,7 @@ class MemoPolicy
      */
     public function view(User $user, Memo $memo)
     {
-        //
+        return true;
     }
 
     /**
@@ -41,7 +41,7 @@ class MemoPolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -65,7 +65,7 @@ class MemoPolicy
      */
     public function delete(User $user, Memo $memo)
     {
-        //
+        return true;
     }
 
     /**
@@ -77,7 +77,7 @@ class MemoPolicy
      */
     public function restore(User $user, Memo $memo)
     {
-        //
+        return true;
     }
 
     /**
@@ -89,6 +89,6 @@ class MemoPolicy
      */
     public function forceDelete(User $user, Memo $memo)
     {
-        //
+        return true;
     }
 }

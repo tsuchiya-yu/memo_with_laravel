@@ -47,3 +47,9 @@ $memo = $user->memos()->create([
 'content' => 'メモの内容',
 ]);
 ```
+
+
+### ソース解析
+```php
+vendor/bin/phpstan analyse app
+```
