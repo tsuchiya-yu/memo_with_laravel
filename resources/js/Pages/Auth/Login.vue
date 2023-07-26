@@ -83,7 +83,12 @@ const submit = () => {
                 >
                     パスワードを忘れた方はこちら
                 </Link>
-
+                <Link
+                    :href="route('register')"
+                    class="mt-3 block text-right underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                    会員登録はこちら
+                </Link>
             </div>
         </form>
     </GuestLayout>
