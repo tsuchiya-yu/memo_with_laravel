@@ -29,4 +29,9 @@ class Memo extends Model
     {
         return $query->where('is_public', false);
     }
+
+    public function scopeOrderByUpdated($query, $direction = 'desc')
+    {
+        return $query->orderBy('updated_at', $direction);
+    }
 }

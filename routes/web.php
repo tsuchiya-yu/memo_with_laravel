@@ -34,11 +34,11 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     $user = Auth::user();
 
-    if (request()->query('is_public') == 'true') {
-        $memos = $user->memos()->public()->get();
+    if (filter_var(request()->query('is_public'), FILTER_VALIDATE_BOOLEAN)) {
+        $memos = $user->memos()->public()->orderByUpdated('desc')->get();
         $is_public = true;
     } else {
-        $memos = $user->memos()->notPublic()->get();
+        $memos = $user->memos()->notPublic()->orderByUpdated('desc')->get();
         $is_public = false;
     }
 

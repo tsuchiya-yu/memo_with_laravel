@@ -20,9 +20,15 @@ class MemoController extends Controller
 
     public function store(MemoRequest $request)
     {
-        Auth::user()->memos()->create($request->validated());
+        $requestData = $request->validated();
+        Auth::user()->memos()->create($requestData);
 
-        return redirect()->route('dashboard')->with('message', 'メモを作成しました');
+        $is_public = false;
+        if (array_key_exists('is_public', $requestData)) {
+            $is_public = filter_var($requestData['is_public'], FILTER_VALIDATE_BOOLEAN);
+        }
+
+        return redirect()->route('dashboard', ['is_public' => $is_public])->with('message', 'メモを作成しました');
     }
 
     public function edit(Memo $memo)
@@ -36,9 +42,15 @@ class MemoController extends Controller
 
     public function update(MemoRequest $request, Memo $memo)
     {
-        $memo->fill($request->validated());
+        $requestData = $request->validated();
+        $memo->fill($requestData);
         $memo->save();
 
-        return redirect()->route('dashboard')->with('message', 'メモを更新しました');
+        $is_public = false;
+        if (array_key_exists('is_public', $requestData)) {
+            $is_public = filter_var($requestData['is_public'], FILTER_VALIDATE_BOOLEAN);
+        }
+
+        return redirect()->route('dashboard', ['is_public' => $is_public])->with('message', 'メモを更新しました');
     }
 }
