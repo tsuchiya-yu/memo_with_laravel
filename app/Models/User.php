@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
+use App\Notifications\ResetPasswordJP as ResetPasswordNotificationJP;
+use App\Notifications\VerifyMailJP;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
-use App\Notifications\VerifyMailJP;
-use App\Notifications\ResetPasswordJP as ResetPasswordNotificationJP;
 
 class User extends Authenticatable implements MustVerifyEmail
 {

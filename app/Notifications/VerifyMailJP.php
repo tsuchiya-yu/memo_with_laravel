@@ -2,14 +2,12 @@
 
 namespace App\Notifications;
 
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use Illuminate\Support\Facades\URL;
-
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\URL;
 
 class VerifyMailJP extends VerifyEmail
 {
@@ -71,10 +69,10 @@ class VerifyMailJP extends VerifyEmail
         ];
     }
 
-        /**
+    /**
      * Get the verification URL for the given notifiable.
      *
-     * @param mixed $notifiable
+     * @param  mixed  $notifiable
      * @return string
      */
     protected function verificationUrl($notifiable)

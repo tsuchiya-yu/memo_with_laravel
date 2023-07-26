@@ -2,17 +2,20 @@
 
 namespace App\Notifications;
 
-use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-
 use Illuminate\Support\Facades\Lang;
 
+/**
+ * @property string $url
+ */
 class ResetPasswordJP extends ResetPassword
 {
     use Queueable;
+
+    public string $url;
 
     /**
      * Create a new notification instance.
