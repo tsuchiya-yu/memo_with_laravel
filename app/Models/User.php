@@ -8,6 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use App\Notifications\VerifyMailJP;
+use App\Notifications\ResetPasswordJP as ResetPasswordNotificationJP;
+
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -45,5 +48,17 @@ class User extends Authenticatable implements MustVerifyEmail
     public function memos()
     {
         return $this->hasMany(Memo::class);
+    }
+
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new VerifyMailJP);
+    }
+
+    // オーバーライド
+    public function sendPasswordResetNotification($token)
+    {
+        $url = url("reset-password/${token}");
+        $this->notify(new ResetPasswordNotificationJP($url));
     }
 }
