@@ -1,0 +1,27 @@
+# fly.toml app configuration file generated for rough-fog-7234 on 2023-07-26T10:15:10Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "rough-fog-7234"
+kill_signal = "SIGINT"
+kill_timeout = 5
+
+primary_region = "nrt"
+
+[processes]
+app = "--datadir /data/mysql --default-authentication-plugin mysql_native_password --performance-schema=OFF --innodb-buffer-pool-size 64M"
+
+[mounts]
+  source="mysqldata"
+  destination="/data"
+
+[env]
+  MYSQL_DATABASE = "hoge"
+  MYSQL_USER = "fuga"
+
+# As of 04/25/2023:
+# MySQL 8.0.33 has a bug in it
+# so avoid that specific version
+[build]
+  image = "mysql:8.0.32"

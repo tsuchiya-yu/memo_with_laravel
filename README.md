@@ -35,9 +35,38 @@ https://app.uizard.io/p/e026c07e/overview
 A black man operating a laptop computer and a black woman looking at a smartphone in her hand. Background color is white.
 
 
+## 本番環境
+### URL
+https://memo-with-laravel.fly.dev
+
+
+### 環境構築
+fly.ioにアカウント登録の後に以下を実行。
+```sh
+curl -L https://fly.io/install.sh | bash
+/root/.fly/bin/flyctl auth login
+# ↑表示されたURLにブラウザからログインする
+/root/.fly/bin/fly launch
+mkdir mysql-on-flylo
+cd mysql-on-flylo
+/root/.fly/bin/fly launch
+# 環境変数を追加
+# e.g) /root/.fly/bin/flyctl secrets set APP_NAME=MemoShare APP_ENV=production
+/root/.fly/bin/fly volumes create mysqldata --size 10
+/root/.fly/bin/fly deploy
+cd ..
+/root/.fly/bin/fly deploy
+```
+
+### その他
+```sh
+# コンテナに侵入
+flyctl ssh console -a memo-with-laravel
+```
+
 ## メモ
 
-### メモデータ作成
+### memosテーブルのテストデータ作成
 
 ```php
 $user = User::latest()->first();
@@ -48,13 +77,12 @@ $memo = $user->memos()->create([
 ]);
 ```
 
+### リンター
+```php
+./vendor/bin/pint -v
+```
 
 ### ソース解析
 ```php
 vendor/bin/phpstan analyse app
-```
-
-### リンター
-```php
-./vendor/bin/pint -v
 ```
