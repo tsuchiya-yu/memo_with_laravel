@@ -26,6 +26,11 @@ const submit = () => {
     });
 };
 
+const deleteMemo = (id) => {
+  form.delete(route('memos.destroy', id), {
+  });
+};
+
 </script>
 
 <template>
@@ -68,6 +73,13 @@ const submit = () => {
                 <PrimaryButton class="inline my-4 mt-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     {{ props.memo.id ? '更新' : '登録' }}する
                 </PrimaryButton>
+                <p
+                    v-if="props.memo.id"
+                    class="mt-3 cursor-pointer block text-right underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    @click="deleteMemo(props.memo.id)"
+                >
+                    メモを削除する
+                </p>
             </form>
         </div>
     </AuthenticatedLayout>

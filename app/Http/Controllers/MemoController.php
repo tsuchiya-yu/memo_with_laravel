@@ -53,4 +53,13 @@ class MemoController extends Controller
 
         return redirect()->route('dashboard', ['is_public' => $is_public])->with('message', 'メモを更新しました');
     }
+
+    public function destroy(Memo $memo)
+    {
+
+        $is_public = filter_var($memo->is_public, FILTER_VALIDATE_BOOLEAN);
+        $memo->delete();
+
+        return redirect()->route('dashboard', ['is_public' => $is_public])->with('message', 'メモを削除しました');
+    }
 }

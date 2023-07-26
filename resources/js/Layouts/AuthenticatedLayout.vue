@@ -29,7 +29,7 @@ const showingNavigationDropdown = ref(false);
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink :href="route('dashboard')" :active="route().current('dashboard') && $page.props.is_public == false">
+                                <NavLink :href="route('dashboard')" :active="route().current('dashboard') && $page.props.is_public != true">
                                     自分用のメモ
                                 </NavLink>
                                 <NavLink :href="route('dashboard', { is_public: 'true' })" :active="route().current('dashboard') && $page.props.is_public == true">
@@ -115,7 +115,7 @@ const showingNavigationDropdown = ref(false);
                     class="sm:hidden"
                 >
                     <div class="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard') && $page.props.is_public == false">
+                        <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard') && $page.props.is_public != true">
                             自分用のメモ
                         </ResponsiveNavLink>
                         <ResponsiveNavLink :href="route('dashboard', { is_public: 'true' })" :active="route().current('dashboard') && $page.props.is_public == true">

@@ -50,8 +50,8 @@ Route::get('/dashboard', function () {
 
 // メモ操作のルーティング
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::resource('memos', MemoController::class)->except(['edit', 'update']);
-    Route::resource('memos', MemoController::class)->only(['edit', 'update'])->middleware('check.memo.owner');
+    Route::resource('memos', MemoController::class)->except(['edit', 'update', 'destroy']);
+    Route::resource('memos', MemoController::class)->only(['edit', 'update', 'destroy'])->middleware('check.memo.owner');
 });
 
 Route::middleware('auth')->group(function () {
