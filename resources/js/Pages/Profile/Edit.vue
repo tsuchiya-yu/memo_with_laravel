@@ -12,7 +12,7 @@ defineProps({
 </script>
 
 <template>
-    <Head title="Profile" />
+    <Head title="設定|MemoShare" />
 
     <AuthenticatedLayout>
 

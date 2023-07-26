@@ -31,7 +31,7 @@ const submit = () => {
 <template>
     <AuthenticatedLayout>
         <div class='m-auto my-8 main-area' style='max-width: 1216px;'>
-            <Head title="「memo.title」の編集|MemoShare" />
+            <Head :title="props.memo.id ? `「${props.memo.title}」の編集|MemoShare` : 'メモの作成|MemoShare'"/>
             <form @submit.prevent="submit">
                 <Transition enter-from-class="opacity-0" leave-to-class="opacity-0" class="transition ease-in-out">
                     <p v-if="form.recentlySuccessful" class="text-sm text-gray-600">更新しました</p>
