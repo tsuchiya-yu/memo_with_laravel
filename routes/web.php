@@ -68,9 +68,12 @@ Route::middleware('auth')->group(function () {
 // メモの閲覧用ルーティング
 Route::get('/read/memos/{id}', function (Request $request) {
     $memo = Memo::find(Memo::decryptId(urldecode($request->route('id'))));
+    $user = Auth::user();
+    $is_owner = $user != null && $memo->user == Auth::user();
 
     return Inertia::render('Memo/Read', [
         'memo' => $memo,
+        'is_owner' => $is_owner,
     ]);
 })->middleware('check.memo.is_public')->name('read.memos.show');
 
