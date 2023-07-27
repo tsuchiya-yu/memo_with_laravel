@@ -18,6 +18,7 @@ module.exports = {
                 "primary-red":"#CB191B",
                 "secondry-red":"#f2cdca",
                 "thin-gray":"#c1c0c8",
+                "link-blue":"#0066cc",
             }
         },
     },

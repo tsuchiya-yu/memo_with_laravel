@@ -69,7 +69,7 @@ const deleteMemo = (id) => {
                     </label>
                 </div>
 
-                <div class='text-right mt-2' v-if="props.memo.id" >最終更新：{{ dayjs(props.memo.updated_at).format('YYYY/MM/DD') }}</div>
+                <div class='text-right mt-2 text-gray-600' v-if="props.memo.id" >最終更新：{{ dayjs(props.memo.updated_at).format('YYYY/MM/DD') }}</div>
                 <PrimaryButton class="inline my-4 mt-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     {{ props.memo.id ? '更新' : '登録' }}する
                 </PrimaryButton>

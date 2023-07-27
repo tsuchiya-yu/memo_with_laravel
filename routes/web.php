@@ -3,6 +3,7 @@
 use App\Http\Controllers\MemoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TestController;
+use App\Models\Memo;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -22,6 +23,7 @@ use Inertia\Inertia;
 // e.g)http://localhost/test/aaa
 Route::get('/test/{message?}', [TestController::class, 'show']);
 
+// 認証周りのルーティング
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -31,6 +33,7 @@ Route::get('/', function () {
     ]);
 });
 
+// ログイン後画面のルーティング
 Route::get('/dashboard', function () {
     $user = Auth::user();
 
@@ -48,16 +51,24 @@ Route::get('/dashboard', function () {
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// メモ操作のルーティング
+// メモ操作のルーティング(作成主)
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('memos', MemoController::class)->except(['edit', 'update', 'destroy']);
     Route::resource('memos', MemoController::class)->only(['edit', 'update', 'destroy'])->middleware('check.memo.owner');
 });
 
+// ログイン後のプロフィール編集のルーティング
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// メモの閲覧用ルーティング
+Route::get('/read/memos/{memo}', function (Memo $memo) {
+    return Inertia::render('Memo/Read', [
+        'memo' => $memo,
+    ]);
+})->middleware('check.memo.is_public')->name('read.memos.show');
 
 require __DIR__.'/auth.php';
