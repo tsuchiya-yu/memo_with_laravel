@@ -6,10 +6,11 @@ import Checkbox from '@/Components/Checkbox.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
-import { Head, useForm } from '@inertiajs/vue3';
+import { Head, useForm, Link } from '@inertiajs/vue3';
 
 const props = defineProps({
     memo: Object,
+    encryptId: String,
 });
 
 const form = useForm({
@@ -27,15 +28,15 @@ const submit = () => {
 };
 
 const deleteMemo = (id) => {
-  form.delete(route('memos.destroy', id), {
-  });
+    const confirmed = confirm('削除したメモは復元できません。本当によろしいでしょうか？');
+    if (confirmed) form.delete(route('memos.destroy', id), {});
 };
 
 </script>
 
 <template>
     <AuthenticatedLayout>
-        <div class='m-auto my-8 main-area' style='max-width: 1216px;'>
+        <div class='m-auto mt-8 pb-8 main-area' style='max-width: 1216px;'>
             <Head :title="props.memo.id ? `「${props.memo.title}」の編集|MemoShare` : 'メモの作成|MemoShare'"/>
             <form @submit.prevent="submit">
                 <Transition enter-from-class="opacity-0" leave-to-class="opacity-0" class="transition ease-in-out">
@@ -69,13 +70,21 @@ const deleteMemo = (id) => {
                     </label>
                 </div>
 
-                <div class='text-right mt-2 text-gray-600' v-if="props.memo.id" >最終更新：{{ dayjs(props.memo.updated_at).format('YYYY/MM/DD') }}</div>
+                <div class='text-right mt-2 text-gray-600 text-sm' v-if="props.memo.id" >最終更新：{{ dayjs(props.memo.updated_at).format('YYYY/MM/DD') }}</div>
                 <PrimaryButton class="inline my-4 mt-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     {{ props.memo.id ? '更新' : '登録' }}する
                 </PrimaryButton>
+                <Link
+                    v-if="props.encryptId && props.memo.is_public"
+                    target='_blank'
+                    :href="route('read.memos.show', props.encryptId)"
+                    class="mt-3 block text-center text-lg text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                >
+                    公開ページはこちら
+                </Link>
                 <p
                     v-if="props.memo.id"
-                    class="mt-3 cursor-pointer block text-right underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    class="mt-3 text-blue-600 cursor-pointer block text-right underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     @click="deleteMemo(props.memo.id)"
                 >
                     メモを削除する

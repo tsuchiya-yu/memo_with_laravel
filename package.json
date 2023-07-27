@@ -18,7 +18,9 @@
         "vue": "^3.2.41"
     },
     "dependencies": {
+        "@chenfengyuan/vue-qrcode": "^2.0.0",
         "dayjs": "^1.11.9",
+        "qrcode": "^1.5.3",
         "sanitize-html": "^2.11.0"
     }
 }

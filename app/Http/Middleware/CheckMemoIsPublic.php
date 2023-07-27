@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Memo;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class CheckMemoIsPublic
      */
     public function handle(Request $request, Closure $next)
     {
-        $memo = $request->route('memo');
+        $memo = Memo::find(Memo::decryptId(urldecode($request->route('id'))));
         if ($memo == null || ! filter_var($memo->is_public, FILTER_VALIDATE_BOOLEAN)) {
             abort(404, 'メモが存在しません');
         }

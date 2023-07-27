@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Crypt;
 
 class Memo extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = ['title', 'content', 'is_public'];
 
@@ -33,5 +35,15 @@ class Memo extends Model
     public function scopeOrderByUpdated($query, $direction = 'desc')
     {
         return $query->orderBy('updated_at', $direction);
+    }
+
+    public function encryptId()
+    {
+        return Crypt::encrypt($this->id);
+    }
+
+    public static function decryptId($decrypt_id)
+    {
+        return Crypt::decrypt($decrypt_id);
     }
 }

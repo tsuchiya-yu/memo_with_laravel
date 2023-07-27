@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TestController;
 use App\Models\Memo;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -65,7 +66,9 @@ Route::middleware('auth')->group(function () {
 });
 
 // メモの閲覧用ルーティング
-Route::get('/read/memos/{memo}', function (Memo $memo) {
+Route::get('/read/memos/{id}', function (Request $request) {
+    $memo = Memo::find(Memo::decryptId(urldecode($request->route('id'))));
+
     return Inertia::render('Memo/Read', [
         'memo' => $memo,
     ]);

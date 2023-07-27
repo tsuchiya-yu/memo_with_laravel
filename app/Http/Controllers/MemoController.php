@@ -15,6 +15,7 @@ class MemoController extends Controller
         return Inertia::render('Memo/Form',
             [
                 'memo' => (new Memo),
+                'encryptId' => '',
             ]);
     }
 
@@ -36,6 +37,7 @@ class MemoController extends Controller
         return Inertia::render('Memo/Form',
             [
                 'memo' => $memo,
+                'encryptId' => $memo->encryptId(),
             ]
         );
     }
