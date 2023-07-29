@@ -58,7 +58,25 @@ function location() {
     </div>
 
     <GuestLayout style="justify-content: initial; min-height: auto;">
-      <Head :title="`${props.memo.title}|MemoShare`" />
+      <Head>
+        <title>{{`${props.memo.title}|メモ共有サービス`}}</title>
+        <meta
+          name="description"
+          content="シンプルで使いやすいメモ共有サービス「MemoShare」。パソコンで書いたメモをスマホで確認、自分で書いたメモを他の人と共有。使い方はイロイロ。無料で始めてみましょう。"
+        />
+        <meta name="robots" content="noindex" />
+        <meta charset="utf-8" />
+        <meta property="og:title" :content="`${props.memo.title}|メモ共有サービス`" />
+        <meta
+          property="og:description"
+          content="シンプルで使いやすいメモ共有サービス「MemoShare」。パソコンで書いたメモをスマホで確認、自分で書いたメモを他の人と共有。使い方はイロイロ。無料で始めてみましょう。"
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://memo-with-laravel.fly.dev" />
+        <meta property="og:image" :content="'/img/plus-icon.png'" />
+        <meta property="og:site_name" content="MemoShare" />
+        <meta property="og:locale" content="ja_JP" />
+      </Head>
       <h1 class="font-bold text-xl">{{props.memo.title}}</h1>
       <p
         class="mt-4 text-sm content"
