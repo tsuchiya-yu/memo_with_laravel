@@ -1,6 +1,5 @@
 
 # 使用言語
-
 - php：8.1.20
 - Laravel：9.52.10
 - mysql：8.0.28
@@ -8,7 +7,6 @@
 # 環境構築
 
 docker compoose upでアプリケーションが起動します。
-
 ※[こちら](https://qiita.com/hitotch/items/aa319c49d625c2a9b65e)を参考にDockerファイルを作成しました。
 
   
@@ -17,31 +15,26 @@ docker compoose upでアプリケーションが起動します。
 ```sql
 mysql -u root
 create user '【DB_USERNAME】'@'%';
-GRANT ALL PRIVILEGES ON *.* TO '【DB_USERNAME】'@'%';
+GRANT ALL PRIVILEGES ON *.* TO  '【DB_USERNAME】'@'%';
 FLUSH PRIVILEGES;
 ```
 
 ## デザイン
 
-  
+### プレビュー
+https://app.uizard.io/p/e026c07e/overview  
 
-### デザイン
-
-プレビュー：
-https://app.uizard.io/p/e026c07e/overview
-
-### トップ画像の生成プロンプト(uizard)：
-
+### トップ画像の生成プロンプト(uizardで作った)
 A black man operating a laptop computer and a black woman looking at a smartphone in her hand. Background color is white.
 
-
 ## 本番環境
+
 ### URL
 https://memo-with-laravel.fly.dev
 
-
 ### 環境構築
 fly.ioにアカウント登録の後に以下を実行。
+
 ```sh
 curl -L https://fly.io/install.sh | bash
 /root/.fly/bin/flyctl auth login
@@ -60,7 +53,7 @@ cd ..
 
 ### その他
 ```sh
-# コンテナに侵入
+# コンテナに侵入するコマンド
 flyctl ssh console -a memo-with-laravel
 ```
 
@@ -78,6 +71,7 @@ $memo = $user->memos()->create([
 ```
 
 ### リンター
+push前に実行を忘れない。
 ```php
 ./vendor/bin/pint -v
 ```
