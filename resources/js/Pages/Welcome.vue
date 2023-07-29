@@ -32,7 +32,7 @@ defineProps({
       />
       <meta property="og:type" content="article" />
       <meta property="og:url" content="https://memo-with-laravel.fly.dev" />
-      <meta property="og:image" :content="'/img/plus-icon.png'" />
+      <meta property="og:image" content="https://memo-with-laravel.fly.dev/img/og.png" />
       <meta property="og:site_name" content="MemoShare" />
       <meta property="og:locale" content="ja_JP" />
     </Head>
