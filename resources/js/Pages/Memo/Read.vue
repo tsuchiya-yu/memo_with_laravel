@@ -42,7 +42,7 @@ function location() {
 
 <template>
   <div class="read-container min-h-screen bg-gray-100">
-    <div class="pt-6 sm:pt-0 flex flex-col sm:justify-center items-center">
+    <div class="pt-6 text-sm sm:pt-0 flex flex-col sm:justify-center items-center">
       <div class="pt-6 w-full sm:max-w-md overflow-hidden sm:rounded-lg text-right">
         <div
           class="bg-white cursor-pointer overflow-hidden sm:rounded-lg inline-block text-center p-1"
@@ -71,12 +71,16 @@ function location() {
     </GuestLayout>
 
     <div class="sm:pt-0 flex flex-col sm:justify-center items-center">
-      <div class="py-6 w-full sm:max-w-md overflow-hidden sm:rounded-lg text-right">
+      <div class="py-5 w-full sm:max-w-md overflow-hidden sm:rounded-lg text-right">
         <Link
           v-if="is_owner"
           :href="route('memos.edit', props.memo.id)"
           class="block cursor-pointer text-right underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
         >メモを編集する</Link>
+        <Link
+          :href="route('dashboard')"
+          class="mt-3 block cursor-pointer text-right underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >マイページを開く</Link>
       </div>
     </div>
 
