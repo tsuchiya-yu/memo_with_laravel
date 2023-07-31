@@ -42,22 +42,22 @@ function location() {
 
 <template>
   <div class="read-container min-h-screen bg-gray-100">
-    <div class="pt-6 text-sm sm:pt-0 flex flex-col sm:justify-center items-center">
-      <div class="pt-6 w-full sm:max-w-md overflow-hidden sm:rounded-lg text-right">
+    <div class="pt-6 text-sm sm:pt-0 flex flex-col sm:justify-center items-center sp-pad">
+      <div class="pt-6 w-full sm:max-w-md overflow-hidden sm:rounded-lg text-right sp-pad">
         <div
-          class="bg-white cursor-pointer overflow-hidden sm:rounded-lg inline-block text-center p-1"
+          class="bg-white cursor-pointer overflow-hidden sm:rounded-lg inline-block text-center p-1 rounded-xl"
           style="width: 140px;"
           @click="copyUrlToClipboard()"
         >このページのURLをコピーする</div>
         <div
-          class="bg-white cursor-pointer overflow-hidden sm:rounded-lg inline-block text-center p-1 ml-2"
+          class="bg-white cursor-pointer overflow-hidden sm:rounded-lg inline-block text-center p-1 ml-2 rounded-xl"
           style="width: 140px;"
           @click="switchDispModal()"
         >URLをQRコードで表示する</div>
       </div>
     </div>
 
-    <GuestLayout style="justify-content: initial; min-height: auto;">
+    <GuestLayout style="justify-content: initial; min-height: auto;" class="sp-pad sp-mt">
       <Head>
         <title>{{`${props.memo.title}|メモ共有サービス`}}</title>
         <meta
@@ -73,7 +73,10 @@ function location() {
         />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://memo-with-laravel.fly.dev" />
-        <meta property="og:image" content="https://previews.dropbox.com/p/thumb/AB9Zy6_8cuB2fuoxyRtv1MxDKki-qIf8I8AOZ-fUPTbBOMtZny0LyT-9IiHSm7CZroJQlWB2AatgbouTMDBLuw4QCiskVXNi8fnyIVN8pDjcsLs4_XEUp61OM_rYvj5zvBqwy8OJ0fWPXeQrdcv4qmyqyDvSh4j1aw7InxAdEKy8wpiT2BLVzVZNMVTdmYug4o_6V8vP0sN-9Iji9n7FYb3H_ua1Cr49TMbEAUnEE4mjivd9rx_NC1Gdh2UZ_oaA2qcZYS3DRqHLQgVtFZ1NubB5lWr7TBexbNye4mpiPGNBCbF88sMO8OeEuBQnGJrlrNoCogHe90jLZCOkUkt0V3vL/p.png" />
+        <meta
+          property="og:image"
+          content="https://previews.dropbox.com/p/thumb/AB9Zy6_8cuB2fuoxyRtv1MxDKki-qIf8I8AOZ-fUPTbBOMtZny0LyT-9IiHSm7CZroJQlWB2AatgbouTMDBLuw4QCiskVXNi8fnyIVN8pDjcsLs4_XEUp61OM_rYvj5zvBqwy8OJ0fWPXeQrdcv4qmyqyDvSh4j1aw7InxAdEKy8wpiT2BLVzVZNMVTdmYug4o_6V8vP0sN-9Iji9n7FYb3H_ua1Cr49TMbEAUnEE4mjivd9rx_NC1Gdh2UZ_oaA2qcZYS3DRqHLQgVtFZ1NubB5lWr7TBexbNye4mpiPGNBCbF88sMO8OeEuBQnGJrlrNoCogHe90jLZCOkUkt0V3vL/p.png"
+        />
         <meta property="og:site_name" content="MemoShare" />
         <meta property="og:locale" content="ja_JP" />
       </Head>
@@ -89,7 +92,7 @@ function location() {
     </GuestLayout>
 
     <div class="sm:pt-0 flex flex-col sm:justify-center items-center">
-      <div class="py-5 w-full sm:max-w-md overflow-hidden sm:rounded-lg text-right">
+      <div class="py-5 mb-5 w-full sm:max-w-md overflow-hidden sm:rounded-lg text-right">
         <Link
           v-if="is_owner"
           :href="route('memos.edit', props.memo.id)"
@@ -137,6 +140,14 @@ function location() {
 @media (max-width: 639px) {
   .read-container {
     padding: 10px;
+  }
+
+  .sp-pad {
+    padding-top: 0;
+  }
+
+  .sp-mt {
+    margin-top: -15px;
   }
 }
 
