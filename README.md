@@ -51,6 +51,8 @@ cd ..
 /root/.fly/bin/fly deploy
 ```
 
+独自ドメインの設定については [こちら](https://qiita.com/Inp/items/b9696d844b1b6bb9e49a#%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E3%81%AE%E9%81%A9%E7%94%A8)を参考にしました。
+
 ### その他
 ```sh
 # コンテナに侵入するコマンド
