@@ -85,10 +85,38 @@ defineProps({
       <div class="sec-use-case py-14 w-screen">
         <h3 class="text-center text-3xl pb-16 font-bold use-case-lbl">使い方</h3>
 
-        <div class="box-how-to-uses mx-10">
+        <div class="box-how-to-uses flex mx-10">
           <div class="box-how-to-use text-center flex">
-            <img :src="'/img/memo-ill.png'" style="width: 200px;" class alt="start MemoShare" />
-            <p>会員登録をします</p>
+            <img
+              :src="'/img/mail_icon.png'"
+              style="width: 100px;"
+              class="box-how-to-use-img"
+              alt="start MemoShare"
+            />
+            <div class="box-how-to-use-right text-left p-4">
+              <p>まずは会員登録</p>
+              <p>入力するのはメールアドレスなど４項目だけ</p>
+              <p>
+                登録は
+                <Link :href="route('register')" class="text-link-blue">こちら</Link>から
+              </p>
+            </div>
+          </div>
+          <div class="box-how-to-use text-center flex">
+            <img
+              :src="'/img/mail_icon.png'"
+              style="width: 100px;"
+              class="box-how-to-use-img"
+              alt="start MemoShare"
+            />
+            <div class="box-how-to-use-right text-left p-4">
+              <p>まずは会員登録</p>
+              <p>入力するのはメールアドレスなど４項目だけ</p>
+              <p>
+                登録は
+                <Link :href="route('register')" class="text-link-blue">こちら</Link>から
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -127,18 +155,22 @@ defineProps({
 }
 
 .box-how-to-uses {
+  justify-content: center;
 }
 
 @media (max-width: 639px) {
   .box-top {
     display: inline-block;
     width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 10px;
   }
 
   .box-left {
     margin: initial;
     margin-top: 40px;
-    width: calc(100% - 80px);
+    width: 100%;
   }
 
   .primary-button {
@@ -150,7 +182,7 @@ defineProps({
   }
 
   .box-right {
-    width: calc(100% - 80px);
+    width: 100%;
   }
 
   .top-img {
@@ -168,6 +200,23 @@ defineProps({
   .sec-use-case {
     display: inline-block;
     padding: 40px 0 20px 0;
+  }
+
+  .box-how-to-uses {
+    display: inline-block;
+  }
+
+  .box-how-to-use {
+    display: inline-block;
+  }
+
+  .box-how-to-use-right {
+    padding: initial;
+  }
+
+  .box-how-to-use-img {
+    width: 50%;
+    margin: 0 auto;
   }
 }
 </style>
