@@ -131,27 +131,27 @@ function location() {
 </template>
 
 <style>
+.content > a {
+  color: #0066cc;
+}
+
 @media (max-width: 1215px) {
   .main-area {
-    padding: 15px;
+    padding: 15px !important;
   }
 }
 
 @media (max-width: 639px) {
   .read-container {
-    padding: 10px;
+    padding: 10px !important;
   }
 
   .sp-pad {
-    padding-top: 0;
+    padding-top: 0 !important;
   }
 
   .sp-mt {
-    margin-top: -15px;
+    margin-top: -15px !important;
   }
-}
-
-.content > a {
-  color: #0066cc;
 }
 </style>

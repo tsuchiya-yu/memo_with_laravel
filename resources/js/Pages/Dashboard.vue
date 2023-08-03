@@ -20,7 +20,10 @@ import { Head, Link, usePage } from "@inertiajs/vue3";
       />
       <meta property="og:type" content="article" />
       <meta property="og:url" content="https://memo-with-laravel.fly.dev" />
-      <meta property="og:image" content="https://previews.dropbox.com/p/thumb/AB9Zy6_8cuB2fuoxyRtv1MxDKki-qIf8I8AOZ-fUPTbBOMtZny0LyT-9IiHSm7CZroJQlWB2AatgbouTMDBLuw4QCiskVXNi8fnyIVN8pDjcsLs4_XEUp61OM_rYvj5zvBqwy8OJ0fWPXeQrdcv4qmyqyDvSh4j1aw7InxAdEKy8wpiT2BLVzVZNMVTdmYug4o_6V8vP0sN-9Iji9n7FYb3H_ua1Cr49TMbEAUnEE4mjivd9rx_NC1Gdh2UZ_oaA2qcZYS3DRqHLQgVtFZ1NubB5lWr7TBexbNye4mpiPGNBCbF88sMO8OeEuBQnGJrlrNoCogHe90jLZCOkUkt0V3vL/p.png" />
+      <meta
+        property="og:image"
+        content="https://previews.dropbox.com/p/thumb/AB9Zy6_8cuB2fuoxyRtv1MxDKki-qIf8I8AOZ-fUPTbBOMtZny0LyT-9IiHSm7CZroJQlWB2AatgbouTMDBLuw4QCiskVXNi8fnyIVN8pDjcsLs4_XEUp61OM_rYvj5zvBqwy8OJ0fWPXeQrdcv4qmyqyDvSh4j1aw7InxAdEKy8wpiT2BLVzVZNMVTdmYug4o_6V8vP0sN-9Iji9n7FYb3H_ua1Cr49TMbEAUnEE4mjivd9rx_NC1Gdh2UZ_oaA2qcZYS3DRqHLQgVtFZ1NubB5lWr7TBexbNye4mpiPGNBCbF88sMO8OeEuBQnGJrlrNoCogHe90jLZCOkUkt0V3vL/p.png"
+      />
       <meta property="og:site_name" content="MemoShare" />
       <meta property="og:locale" content="ja_JP" />
     </Head>
@@ -83,18 +86,18 @@ export default {
 
 @media (max-width: 1047px) {
   .memo-box {
-    max-width: 200px;
+    max-width: 200px !important;
   }
 }
 
 @media (max-width: 547px) {
   .memo-box-wrap {
-    padding: 1rem 0;
-    gap: 0;
+    padding: 1rem 0 !important;
+    gap: 0 !important;
   }
 
   .memo-box {
-    max-width: 170px;
+    max-width: 170px !important;
   }
 }
 

@@ -160,63 +160,63 @@ defineProps({
 
 @media (max-width: 639px) {
   .box-top {
-    display: inline-block;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0 10px;
+    display: inline-block !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 10pxv;
   }
 
   .box-left {
-    margin: initial;
-    margin-top: 40px;
-    width: 100%;
+    margin: initial !important;
+    margin-top: 40px !important;
+    width: 100% !important;
   }
 
   .primary-button {
-    width: 100%;
+    width: 100% !important;
   }
 
   .use-case-lbl {
-    padding: 0;
+    padding: 0 !important;
   }
 
   .box-right {
-    width: 100%;
+    width: 100% !important;
   }
 
   .top-img {
-    height: 150px;
+    height: 150px !important;
   }
 
   .box-use-cases {
-    display: block;
+    display: block !important;
   }
 
   .box-use-case {
-    margin: 40px 0;
+    margin: 40px 0 !important;
   }
 
   .sec-use-case {
-    display: inline-block;
-    padding: 40px 0 20px 0;
+    display: inline-block !important;
+    padding: 40px 0 20px 0 !important;
   }
 
   .box-how-to-uses {
-    display: inline-block;
+    display: inline-block !important;
   }
 
   .box-how-to-use {
-    display: inline-block;
+    display: inline-block !important;
   }
 
   .box-how-to-use-right {
-    padding: initial;
+    padding: initial !important;
   }
 
   .box-how-to-use-img {
-    width: 50%;
-    margin: 0 auto;
+    width: 50% !important;
+    margin: 0 auto !important;
   }
 }
 </style>
