@@ -47,7 +47,7 @@ defineProps({
           <h1 class="text-5xl my-3 font-bold">MemoShare</h1>
           <p>パソコンで書いたメモをスマホで確認、自分で書いたメモを他の人と共有</p>
           <Link :href="route('register')">
-            <PrimaryButton class="inline my-6 primary-button">今すぐ始める</PrimaryButton>
+            <PrimaryButton class="inline my-6 primary-button" style="width: 250px;">今すぐ始める</PrimaryButton>
           </Link>
         </div>
         <div class="box-right w-7/12">
@@ -150,10 +150,6 @@ defineProps({
   justify-content: center;
 }
 
-.primary-button {
-  width: 250px;
-}
-
 .box-how-to-uses {
   justify-content: center;
 }
@@ -171,6 +167,7 @@ defineProps({
     margin: initial !important;
     margin-top: 40px !important;
     width: 100% !important;
+    padding: 0 14px !important;
   }
 
   .primary-button {
