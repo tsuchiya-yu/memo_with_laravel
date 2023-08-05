@@ -83,8 +83,7 @@ defineProps({
       </div>
 
       <div class="sec-use-case py-14 w-screen">
-        <h3 class="text-center text-3xl pb-16 font-bold use-case-lbl">使い方</h3>
-
+        <h3 class="text-center text-3xl pb-8 font-bold use-case-lbl">使い方</h3>
         <div class="box-how-to-uses flex mx-10">
           <div class="box-how-to-use text-center flex">
             <img
@@ -95,29 +94,44 @@ defineProps({
             />
             <div class="box-how-to-use-right text-left p-4">
               <p>まずは会員登録</p>
-              <p>入力するのはメールアドレスなど４項目だけ</p>
+              <p>わずか1分で簡単に登録！</p>
               <p>
                 登録は
-                <Link :href="route('register')" class="text-link-blue">こちら</Link>から
+                <Link :href="route('register')" class="text-link-blue">こちら</Link>&nbsp;&nbsp;から
               </p>
             </div>
           </div>
           <div class="box-how-to-use text-center flex">
             <img
-              :src="'/img/mail_icon.png'"
+              :src="'/img/icon_memo.png'"
               style="width: 100px;"
               class="box-how-to-use-img"
               alt="start MemoShare"
             />
             <div class="box-how-to-use-right text-left p-4">
-              <p>まずは会員登録</p>
-              <p>入力するのはメールアドレスなど４項目だけ</p>
-              <p>
-                登録は
-                <Link :href="route('register')" class="text-link-blue">こちら</Link>から
-              </p>
+              <p>次にメモの作成</p>
+              <p>共有したいことを書いて保存</p>
+              <p>自分だけのメモも書ける</p>
             </div>
           </div>
+          <div class="box-how-to-use text-center flex">
+            <img
+              :src="'/img/share_icon.png'"
+              style="width: 85px; object-fit: contain;"
+              class="box-how-to-use-img"
+              alt="start MemoShare"
+            />
+            <div class="box-how-to-use-right text-left p-4">
+              <p>最後にURLの共有</p>
+              <p>メモページのURLを共有しましょう</p>
+              <p>自分のスマホや他の人にも共有できる</p>
+            </div>
+          </div>
+        </div>
+        <div class="w-full text-center pt-14">
+          <Link :href="route('register')">
+            <PrimaryButton class="inline my-6 primary-button" style="width: 400px;">今すぐ始める</PrimaryButton>
+          </Link>
         </div>
       </div>
 
@@ -151,6 +165,7 @@ defineProps({
 }
 
 .box-how-to-uses {
+  gap: 40px;
   justify-content: center;
 }
 
@@ -183,7 +198,7 @@ defineProps({
   }
 
   .top-img {
-    height: 150px !important;
+    height: 350px !important;
   }
 
   .box-use-cases {
@@ -201,14 +216,18 @@ defineProps({
 
   .box-how-to-uses {
     display: inline-block !important;
+    text-align: center !important;
+    margin-top: 20px !important;
   }
 
   .box-how-to-use {
     display: inline-block !important;
+    margin: 20px 0 !important;
   }
 
   .box-how-to-use-right {
     padding: initial !important;
+    text-align: center !important;
   }
 
   .box-how-to-use-img {
