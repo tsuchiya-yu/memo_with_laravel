@@ -128,14 +128,14 @@ defineProps({
             </div>
           </div>
         </div>
-        <div class="w-full text-center pt-14">
+        <div class="w-full text-center pt-14 box-btns">
           <Link :href="route('register')">
             <PrimaryButton class="inline my-6 primary-button" style="width: 400px;">今すぐ始める</PrimaryButton>
           </Link>
         </div>
       </div>
 
-      <div class="sec-announce mx-10">
+      <div class="sec-announce mx-6">
         <div class="font-bold">免責事項</div>
         <p>当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますので、その旨ご了承いただき、自己責任でのご利用をお願いいたします。</p>
       </div>
@@ -233,6 +233,11 @@ defineProps({
   .box-how-to-use-img {
     width: 50% !important;
     margin: 0 auto !important;
+  }
+
+  .box-btns {
+    padding-top: 0;
+    padding: 0 14px !important;
   }
 }
 </style>

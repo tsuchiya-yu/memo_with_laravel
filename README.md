@@ -19,6 +19,19 @@ GRANT ALL PRIVILEGES ON *.* TO  '【DB_USERNAME】'@'%';
 FLUSH PRIVILEGES;
 ```
 
+### DB接続コマンド
+DBのコンテナ内で実施
+```sh
+mysql -h localhost -P 13307
+use develop;
+```
+
+### アプリケーションのコンソールコマンド
+Webのコンテナ内で実施
+```sh
+php artisan tinker
+```
+
 ## デザイン
 
 ### プレビュー
@@ -46,8 +59,10 @@ cd mysql-on-flylo
 # 環境変数を追加
 # e.g) /root/.fly/bin/flyctl secrets set APP_NAME=MemoShare APP_ENV=production
 /root/.fly/bin/fly volumes create mysqldata --size 10
+# DBコンテナのデプロイ
 /root/.fly/bin/fly deploy
 cd ..
+# アプリのデプロイ(/srcのパスで実行)
 /root/.fly/bin/fly deploy
 ```
 
