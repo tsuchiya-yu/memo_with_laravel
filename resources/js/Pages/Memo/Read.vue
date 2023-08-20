@@ -89,21 +89,21 @@ function location() {
       <p
         class="mt-4 text-sm text-right text-gray-600"
       >最終更新：{{ dayjs(props.memo.updated_at).format('YYYY/MM/DD') }}</p>
-    </GuestLayout>
 
-    <div class="sm:pt-0 flex flex-col sm:justify-center items-center">
-      <div class="py-5 mb-5 w-full sm:max-w-md overflow-hidden sm:rounded-lg text-right">
-        <Link
-          v-if="is_owner"
-          :href="route('memos.edit', props.memo.id)"
-          class="block cursor-pointer text-right underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >メモを編集する</Link>
-        <Link
-          :href="route('dashboard')"
-          class="mt-3 block cursor-pointer text-right underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >マイページを開く</Link>
+      <div class="sm:pt-0 flex flex-col sm:justify-center items-center">
+        <div class="py-5 w-full sm:max-w-md overflow-hidden sm:rounded-lg text-right">
+          <Link
+            v-if="is_owner"
+            :href="route('memos.edit', props.memo.id)"
+            class="block cursor-pointer text-right underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >メモを編集する</Link>
+          <Link
+            :href="route('dashboard')"
+            class="mt-3 block cursor-pointer text-right underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >マイページを開く</Link>
+        </div>
       </div>
-    </div>
+    </GuestLayout>
 
     <Modal :show="dispModal" @close="switchDispModal">
       <div class="p-6">

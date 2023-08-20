@@ -135,11 +135,6 @@ defineProps({
           </Link>
         </div>
       </div>
-
-      <div class="sec-announce mx-6">
-        <div class="font-bold">免責事項</div>
-        <p>当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますので、その旨ご了承いただき、自己責任でのご利用をお願いいたします。</p>
-      </div>
     </div>
     <CommonFooter />
   </div>

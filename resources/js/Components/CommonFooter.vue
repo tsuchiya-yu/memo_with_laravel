@@ -27,7 +27,7 @@ const closePrivacyModal = () => {
 </script>
 
 <template>
-  <div class="common-foolter mp-10 bg-gray-100">
+  <div class="common-foolter py-4 bg-gray-100">
     <div
       @click="openPrivacyModal"
       class="block text-center underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
