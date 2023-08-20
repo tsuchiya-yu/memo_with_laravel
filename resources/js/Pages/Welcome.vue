@@ -2,6 +2,7 @@
 import GuestLayout from "@/Layouts/GuestLayout.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import { Head, Link } from "@inertiajs/vue3";
+import CommonFooter from "@/Components/CommonFooter.vue";
 
 defineProps({
   canLogin: Boolean,
@@ -140,6 +141,7 @@ defineProps({
         <p>当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますので、その旨ご了承いただき、自己責任でのご利用をお願いいたします。</p>
       </div>
     </div>
+    <CommonFooter />
   </div>
 </template>
 
@@ -167,6 +169,12 @@ defineProps({
 .box-how-to-uses {
   gap: 40px;
   justify-content: center;
+}
+
+.common-foolter {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 @media (max-width: 639px) {
