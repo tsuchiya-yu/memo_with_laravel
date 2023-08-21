@@ -105,6 +105,27 @@ function location() {
       </div>
     </GuestLayout>
 
+    <div class="text-center mt-5">
+      <!-- A8広告 -->
+      <a href="https://px.a8.net/svt/ejp?a8mat=3TFAX9+5K1O1E+2P80+626XT" rel="nofollow">
+        <img
+          border="0"
+          width="234"
+          height="60"
+          alt
+          src="https://www22.a8.net/svt/bgt?aid=230821389336&wid=001&eno=01&mid=s00000012600001018000&mc=1"
+          style="text-align: center; display: inline-block; margin-bottom: 20px;"
+        />
+      </a>
+      <img
+        border="0"
+        width="1"
+        height="1"
+        src="https://www14.a8.net/0.gif?a8mat=3TFAX9+5K1O1E+2P80+626XT"
+        alt
+      />
+    </div>
+
     <Modal :show="dispModal" @close="switchDispModal">
       <div class="p-6">
         <h2 class="text-lg font-medium text-gray-900">QRコードを発行しました</h2>

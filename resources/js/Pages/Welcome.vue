@@ -130,6 +130,24 @@ defineProps({
           </div>
         </div>
         <div class="w-full text-center pt-14 box-btns">
+          <!-- A8広告 -->
+          <a href="https://px.a8.net/svt/ejp?a8mat=3TFAX8+ERO3ZM+5244+5ZEMP" rel="nofollow">
+            <img
+              border="0"
+              width="120"
+              height="60"
+              alt
+              src="https://www22.a8.net/svt/bgt?aid=230821388893&wid=001&eno=01&mid=s00000023602001005000&mc=1"
+              style="text-align: center; display: inline-block;"
+            />
+          </a>
+          <img
+            border="0"
+            width="1"
+            height="1"
+            src="https://www12.a8.net/0.gif?a8mat=3TFAX8+ERO3ZM+5244+5ZEMP"
+            alt
+          />
           <Link :href="route('register')">
             <PrimaryButton class="inline my-6 primary-button" style="width: 400px;">今すぐ始める</PrimaryButton>
           </Link>

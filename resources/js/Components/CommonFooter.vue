@@ -50,6 +50,24 @@ const closePrivacyModal = () => {
           <br />お問い合わせの内容によっては返事に時間がかかる場合や返事ができかねる場合がございますのでご了承ください。
         </div>
         <div class="text-center mt-5">
+          <!-- A8広告 -->
+          <a href="https://px.a8.net/svt/ejp?a8mat=3TFAX8+ERO3ZM+5244+5ZEMP" rel="nofollow">
+            <img
+              border="0"
+              width="120"
+              height="60"
+              alt
+              src="https://www22.a8.net/svt/bgt?aid=230821388893&wid=001&eno=01&mid=s00000023602001005000&mc=1"
+              style="text-align: center; display: inline-block; margin-bottom: 20px;"
+            />
+          </a>
+          <img
+            border="0"
+            width="1"
+            height="1"
+            src="https://www12.a8.net/0.gif?a8mat=3TFAX8+ERO3ZM+5244+5ZEMP"
+            alt
+          />
           <SecondaryButton @click="closeContactModal">閉じる</SecondaryButton>
         </div>
       </div>
@@ -79,19 +97,8 @@ const closePrivacyModal = () => {
 
           <div class="privacy-title">広告配信サービスについて</div>
           <div>
-            当サービスでは、第三者配信の広告サービス(Googleアドセンス)を利用して広告を掲載しています。
+            当サービスでは、第三者配信の広告サービスを利用して広告を掲載しています。
             第三者配信事業者は、ユーザーの興味に応じたパーソナライズ広告を表示するためにCookieを使用しています。
-            パーソナライズ広告は、
-            <a
-              href="https://www.google.com/settings/ads"
-              class="text-link-blue"
-              target="_blank"
-            >広告設定</a>で無効にできます。また、
-            <a
-              href="http://www.aboutads.info/choices/"
-              class="text-link-blue"
-              target="_blank"
-            >www.aboutads.info</a>で第三者配信事業者のCookieを無効にすることができます。
           </div>
 
           <div class="privacy-title">アクセス解析ツールについて</div>
@@ -154,6 +161,24 @@ const closePrivacyModal = () => {
           </div>
         </div>
         <div class="text-center mt-5">
+          <!-- A8広告 -->
+          <a href="https://px.a8.net/svt/ejp?a8mat=3TFAX8+ERO3ZM+5244+5ZEMP" rel="nofollow">
+            <img
+              border="0"
+              width="120"
+              height="60"
+              alt
+              src="https://www22.a8.net/svt/bgt?aid=230821388893&wid=001&eno=01&mid=s00000023602001005000&mc=1"
+              style="text-align: center; display: inline-block; margin-bottom: 20px;"
+            />
+          </a>
+          <img
+            border="0"
+            width="1"
+            height="1"
+            src="https://www12.a8.net/0.gif?a8mat=3TFAX8+ERO3ZM+5244+5ZEMP"
+            alt
+          />
           <SecondaryButton @click="closePrivacyModal">閉じる</SecondaryButton>
         </div>
       </div>
