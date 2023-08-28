@@ -154,6 +154,7 @@ function location() {
 <style>
 .content > a {
   color: #0066cc;
+  word-wrap: break-word;
 }
 
 @media (max-width: 1215px) {
