@@ -43,7 +43,7 @@ A black man operating a laptop computer and a black woman looking at a smartphon
 ## 本番環境
 
 ### URL
-https://memo-with-laravel.fly.dev
+[https://memoshare.catnote.tokyo](https://memoshare.catnote.tokyo)
 
 ### 環境構築
 fly.ioにアカウント登録の後に以下を実行。
