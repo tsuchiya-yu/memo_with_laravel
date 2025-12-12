@@ -1,5 +1,10 @@
 # MemoShare (memo_with_laravel)
 
+## 記載ルール
+- このリポジトリに関するドキュメント、Issue、Pull Request、コミットメッセージ、AI からの回答はすべて日本語で記述する。
+- 外部リンクや API 名など英語名称が正式名称の場合のみ英語を使用し、説明文は必ず日本語を添える。
+- 本ドキュメントを最新情報源として更新し、内容に差分が出た場合は必ず追記・修正する。
+
 ## プロジェクト概要
 - Laravel 9 + PHP 8.1 + MySQL 8 で実装したシンプルなメモ共有サービス。ユーザー登録/認証後にメモを作成し、非公開・公開を切り替えて共有できる。
 - Inertia.js + Vue 3（Breezeプリセット）で SPA ライクな画面を提供し、Tailwind CSS でスタイリング。フロントは Vite でビルド。
@@ -37,7 +42,7 @@
 - **DB**: `mysql -u root`, `GRANT ALL PRIVILEGES ...`（README 手順）。Docker の mysql サービス経由で `localhost:13307`。
 
 ## デプロイ（Fly.io）
-- `fly.toml` と `mysql-on-flylo/` ディレクトリが Fly.io 用リソース。README のフローに従い、`flyctl launch` → `fly volumes create` → `fly deploy`。
+- `fly.toml` と `mysql-on-flylo/` ディレクトリが Fly.io 用リソース。README のフローに従い、`flyctl launch` → `fly volumes create` → `fly deploy` を行う。
 - Secrets 設定例: `flyctl secrets set APP_NAME=MemoShare APP_ENV=production`。
 - DB 用アプリも別途 `fly launch` で作成してデプロイ。
 
