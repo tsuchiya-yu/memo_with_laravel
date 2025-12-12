@@ -10,7 +10,7 @@ defineProps({
 <template>
   <button
     :type="type"
-    class="items-center px-4 py-2 bg-primary-red border border-transparent rounded-xl font-semibold text-white uppercase tracking-widest hover:bg-secondry-red focus:bg-secondry-red active:bg-primary-red focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 w-full block h-14 text-base"
+    class="inline-flex items-center justify-center gap-2 rounded-full border border-transparent bg-accent px-6 py-3 text-base font-semibold text-white shadow-inner transition duration-200 ease-out hover:bg-[#ff767a] focus:outline-none focus:ring-2 focus:ring-accent/40 focus:ring-offset-2 focus:ring-offset-bg-default disabled:cursor-not-allowed disabled:opacity-60"
   >
     <slot />
   </button>

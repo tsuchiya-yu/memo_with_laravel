@@ -32,7 +32,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('welcome');
 
 // ログイン後画面のルーティング
 Route::get('/dashboard', function () {

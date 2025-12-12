@@ -6,8 +6,17 @@
 
 # 環境構築
 
-docker compoose upでアプリケーションが起動します。
+docker compose upでアプリケーションが起動します。
 ※[こちら](https://qiita.com/hitotch/items/aa319c49d625c2a9b65e)を参考にDockerファイルを作成しました。
+
+## Mailpit（開発用メール確認）
+
+Docker 構成に Mailpit を同梱しているため、`docker compose up` 後は以下で確認できます。
+
+- Web UI: http://localhost:8025
+- SMTP: `mailpit:1025`（`.env` の `MAIL_HOST` / `MAIL_PORT` で定義済み）
+
+会員登録やパスワードリセットの通知メールは上記 UI で閲覧可能です。
 
   
 ## DB接続用のユーザ作成

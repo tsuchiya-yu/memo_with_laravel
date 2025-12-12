@@ -37,7 +37,7 @@ const deleteMemo = id => {
 
 <template>
   <AuthenticatedLayout>
-    <div class="m-auto mt-8 pb-8 main-area" style="max-width: 1216px;">
+    <div class="m-auto pb-8 main-area" style="max-width: 1216px;">
       <Head>
         <title>{{props.memo.id ? `「${props.memo.title}」の編集|メモ共有サービス` : 'メモの作成|メモ共有サービス'}}</title>
         <meta
@@ -103,20 +103,22 @@ const deleteMemo = id => {
           class="text-right mt-2 text-gray-600 text-sm"
           v-if="props.memo.id"
         >最終更新：{{ dayjs(props.memo.updated_at).format('YYYY/MM/DD') }}</div>
-        <PrimaryButton
-          class="inline my-4 mt-4"
-          :class="{ 'opacity-25': form.processing }"
-          :disabled="form.processing"
-        >{{ props.memo.id ? '更新' : '登録' }}する</PrimaryButton>
+        <div class="mt-6 flex justify-center">
+          <PrimaryButton
+            class="inline my-4"
+            :class="{ 'opacity-25': form.processing }"
+            :disabled="form.processing"
+          >{{ props.memo.id ? '更新' : '登録' }}する</PrimaryButton>
+        </div>
         <Link
           v-if="props.encryptId && props.memo.is_public"
           target="_blank"
           :href="route('read.memos.show', props.encryptId)"
-          class="mt-3 block text-center text-lg text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >公開ページはこちら</Link>
+          class="mt-4 block text-center text-sm underline hover:text-text-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >公開ページを確認する</Link>
         <p
           v-if="props.memo.id"
-          class="mt-3 text-blue-600 cursor-pointer block text-right underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          class="mt-3 block cursor-pointer text-right text-sm text-accent underline hover:text-text-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           @click="deleteMemo(props.memo.id)"
         >メモを削除する</p>
       </form>
