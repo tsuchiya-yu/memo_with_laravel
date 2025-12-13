@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-bg-default text-text-primary font-sans antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply text-text-primary font-semibold tracking-tight;
+    }
+
+    a {
+        @apply text-accent-alt transition-colors duration-200 ease-out;
+    }
+
+    a:hover {
+        @apply text-accent;
+    }
+}
