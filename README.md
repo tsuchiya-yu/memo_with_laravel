@@ -47,23 +47,24 @@ https://memo-with-laravel.fly.dev
 
 ### 環境構築
 fly.ioにアカウント登録の後に以下を実行。
+※`flyctl`コマンドが使えない場合は、ターミナルを再起動するか、シェルの設定ファイル（例: `~/.zshrc` や `~/.bashrc`）を再読み込みしてください。
 
 ```sh
-curl -L https://fly.io/install.sh | bash
-/root/.fly/bin/flyctl auth login
+curl -L https://fly.io/install.sh | sh
+flyctl auth login
 # ↑表示されたURLにブラウザからログインする
-/root/.fly/bin/fly launch
+flyctl launch
 mkdir mysql-on-flylo
 cd mysql-on-flylo
-/root/.fly/bin/fly launch
+flyctl launch
 # 環境変数を追加
-# e.g) /root/.fly/bin/flyctl secrets set APP_NAME=MemoShare APP_ENV=production
-/root/.fly/bin/fly volumes create mysqldata --size 10
+# e.g) flyctl secrets set APP_NAME=MemoShare APP_ENV=production
+flyctl volumes create mysqldata --size 10
 # DBコンテナのデプロイ
-/root/.fly/bin/fly deploy
+flyctl deploy
 cd ..
 # アプリのデプロイ(/srcのパスで実行)
-/root/.fly/bin/fly deploy
+flyctl deploy
 ```
 
 独自ドメインの設定については [こちら](https://qiita.com/Inp/items/b9696d844b1b6bb9e49a#%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E3%81%AE%E9%81%A9%E7%94%A8)を参考にしました。

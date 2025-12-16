@@ -17,8 +17,8 @@ app = "--datadir /data/mysql --default-authentication-plugin mysql_native_passwo
   destination="/data"
 
 [env]
-  MYSQL_DATABASE = "hoge"
-  MYSQL_USER = "fuga"
+  MYSQL_DATABASE = "production"
+  MYSQL_USER = "user"
 
 # As of 04/25/2023:
 # MySQL 8.0.33 has a bug in it
