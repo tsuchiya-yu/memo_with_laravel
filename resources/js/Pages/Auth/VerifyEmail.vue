@@ -45,29 +45,17 @@ const verificationLinkSent = computed(
       <h1 class="font-bold text-xl m-2">MemoShare</h1>
       <p class="text-sm">メールアドレスの認証が済んでいません。</p>
       <p class="text-sm">認証を行ってください。</p>
-      <img
-        :src="'/img/mail_not_confirm.png'"
-        alt="start MemoShare"
-        class="w-32 h-32 inline-block mt-6"
-      />
     </div>
 
     <div class="my-4 font-medium block text-center mb-12" v-if="verificationLinkSent">新しくメールを送りました</div>
 
     <form @submit.prevent="submit">
-      <div style="margin-top: -30px;">
+      <div style="margin-top: -30px; text-align: center;">
         <PrimaryButton
           class="inline my-4"
           :class="{ 'opacity-25': form.processing }"
           :disabled="form.processing"
         >メールを再送する</PrimaryButton>
-
-        <Link
-          :href="route('logout')"
-          method="post"
-          as="button"
-          class="block w-full text-right underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >ログアウトはこちら</Link>
       </div>
     </form>
   </GuestLayout>

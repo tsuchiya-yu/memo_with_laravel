@@ -65,17 +65,17 @@ const submit = () => {
         <InputError class="mt-2" :message="form.errors.email" />
       </div>
 
-      <div class="mt-4">
+      <div class="mt-4 flex justify-center">
         <PrimaryButton
           class="inline my-4"
           :class="{ 'opacity-25': form.processing }"
           :disabled="form.processing"
-        >パスワード再設定メールを送る</PrimaryButton>
-        <Link
-          :href="route('login')"
-          class="block text-right underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >ログインはこちら</Link>
+        >再設定メールを送る</PrimaryButton>
       </div>
+      <Link
+        :href="route('login')"
+        class="block text-right underline text-sm rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      >ログインはこちら</Link>
     </form>
   </GuestLayout>
 </template>

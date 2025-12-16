@@ -13,6 +13,8 @@ class Memo extends Model
 
     protected $fillable = ['title', 'content', 'is_public'];
 
+    protected $appends = ['encrypt_id'];
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -40,6 +42,11 @@ class Memo extends Model
     public function encryptId()
     {
         return Crypt::encrypt($this->id);
+    }
+
+    public function getEncryptIdAttribute()
+    {
+        return $this->encryptId();
     }
 
     public static function decryptId($decrypt_id)

@@ -42,21 +42,6 @@ function location() {
 
 <template>
   <div class="read-container min-h-screen bg-gray-100">
-    <div class="pt-6 text-sm sm:pt-0 flex flex-col sm:justify-center items-center sp-pad">
-      <div class="pt-6 w-full sm:max-w-md overflow-hidden sm:rounded-lg text-right sp-pad">
-        <div
-          class="bg-white cursor-pointer overflow-hidden sm:rounded-lg inline-block text-center p-1 rounded-xl"
-          style="width: 140px;"
-          @click="copyUrlToClipboard()"
-        >このページのURLをコピーする</div>
-        <div
-          class="bg-white cursor-pointer overflow-hidden sm:rounded-lg inline-block text-center p-1 ml-2 rounded-xl"
-          style="width: 140px;"
-          @click="switchDispModal()"
-        >URLをQRコードで表示する</div>
-      </div>
-    </div>
-
     <GuestLayout style="justify-content: initial; min-height: auto;" class="sp-pad sp-mt">
       <Head>
         <title>{{`${props.memo.title}|メモ共有サービス`}}</title>
@@ -69,7 +54,7 @@ function location() {
         <meta property="og:title" :content="`${props.memo.title}|メモ共有サービス`" />
         <meta
           property="og:description"
-          content="シンプルで使いやすいメモ共有サービス「MemoShare」。パソコンで書いたメモをスマホで確認、自分で書いたメモを他の人と共有。使い方はイロイロ。無料で始めてみましょう。"
+          content="シンプルで使いやすいメモ共有サービス「MemoShare」。パソコンで書いたメモをスマホで確認、自分で書いたメモを他の人と共有。使い方はイロイ-ロ。無料で始めてみましょう。"
         />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://memo-with-laravel.fly.dev" />
@@ -80,26 +65,45 @@ function location() {
         <meta property="og:site_name" content="MemoShare" />
         <meta property="og:locale" content="ja_JP" />
       </Head>
-      <h1 class="font-bold text-xl">{{props.memo.title}}</h1>
-      <p
-        class="mt-4 text-sm content"
-        style="white-space: pre-line;"
-        v-html="autoLink(props.memo.content)"
-      ></p>
-      <p
-        class="mt-4 text-sm text-right text-gray-600"
-      >最終更新：{{ dayjs(props.memo.updated_at).format('YYYY/MM/DD') }}</p>
 
-      <div class="sm:pt-0 flex flex-col sm:justify-center items-center">
-        <div class="py-5 w-full sm:max-w-md overflow-hidden sm:rounded-lg text-right">
+      <div class="mx-auto w-full max-w-3xl">
+        <div class="mb-4 flex flex-col items-end gap-3">
+          <button
+            type="button"
+            class="w-56 rounded-xl border border-stroke bg-white px-3 py-2 text-sm font-semibold text-text-primary shadow-sm transition hover:border-accent hover:text-accent"
+            @click="copyUrlToClipboard()"
+          >
+            このページのURLをコピーする
+          </button>
+          <button
+            type="button"
+            class="w-56 rounded-xl border border-stroke bg-white px-3 py-2 text-sm font-semibold text-text-primary shadow-sm transition hover:border-accent hover:text-accent"
+            @click="switchDispModal()"
+          >
+            URLをQRコードで表示する
+          </button>
+        </div>
+
+        <div class="rounded-3xl bg-white/95 p-8 shadow-card">
+          <h1 class="text-2xl font-semibold text-text-primary">{{ props.memo.title }}</h1>
+          <p
+            class="mt-4 whitespace-pre-line text-base leading-relaxed text-text-secondary content"
+            v-html="autoLink(props.memo.content)"
+          ></p>
+          <p class="mt-6 text-right text-sm text-text-secondary">
+            最終更新：{{ dayjs(props.memo.updated_at).format("YYYY/MM/DD") }}
+          </p>
+        </div>
+
+        <div class="mt-8 text-right text-sm text-gray-600">
           <Link
             v-if="is_owner"
             :href="route('memos.edit', props.memo.id)"
-            class="block cursor-pointer text-right underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            class="block cursor-pointer underline hover:text-gray-900"
           >メモを編集する</Link>
           <Link
             :href="route('dashboard')"
-            class="mt-3 block cursor-pointer text-right underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            class="mt-3 block cursor-pointer underline hover:text-gray-900"
           >マイページを開く</Link>
         </div>
       </div>
